@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BSM352Odev2.RenkSeciciPage"
+             Title="Renk Seçici"
+             x:Name="BuSayfa">
+    <ContentPage.Background>
+        <SolidColorBrush Color="{Binding Source={x:Reference LblHexKodu}, Path=TextColor}" />
+    </ContentPage.Background>
+
+    <VerticalStackLayout VerticalOptions="Center" Padding="10">
+        <Frame Padding="15" CornerRadius="10">
+            <VerticalStackLayout Spacing="15">
+
+                <Label Text="Renk Seçici" 
+                       FontSize="22" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" />
+
+                <Grid RowSpacing="15" ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Text="Kırmızı (Red):" 
+                           VerticalOptions="Center"
+                           Grid.Row="0" Grid.Column="0" />
+                    <Slider x:Name="SliderRed" 
+                            Minimum="0" Maximum="255" 
+                            ValueChanged="OnColorChanged"
+                            VerticalOptions="Center"
+                            Grid.Row="0" Grid.Column="1" />
+                    <Label x:Name="LblRed" 
+                           Text="0" 
+                           VerticalOptions="Center"
+                           Grid.Row="0" Grid.Column="2" />
+
+                    <Label Text="Yeşil (Green):" 
+                           VerticalOptions="Center"
+                           Grid.Row="1" Grid.Column="0" />
+                    <Slider x:Name="SliderGreen" 
+                            Minimum="0" Maximum="255" 
+                            ValueChanged="OnColorChanged"
+                            VerticalOptions="Center"
+                            Grid.Row="1" Grid.Column="1" />
+                    <Label x:Name="LblGreen" 
+                           Text="0" 
+                           VerticalOptions="Center"
+                           Grid.Row="1" Grid.Column="2" />
+
+                    <Label Text="Mavi (Blue):" 
+                           VerticalOptions="Center"
+                           Grid.Row="2" Grid.Column="0" />
+                    <Slider x:Name="SliderBlue" 
+                            Minimum="0" Maximum="255" 
+                            ValueChanged="OnColorChanged"
+                            VerticalOptions="Center"
+                            Grid.Row="2" Grid.Column="1" />
+                    <Label x:Name="LblBlue" 
+                           Text="0" 
+                           VerticalOptions="Center"
+                           Grid.Row="2" Grid.Column="2" />
+                </Grid>
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Label x:Name="LblHexKodu" 
+                           Text="#000000" 
+                           FontSize="20" 
+                           FontAttributes="Bold" 
+                           VerticalOptions="Center" />
+                    <Button x:Name="BtnKopyala" 
+                            Text="Kopyala" 
+                            Clicked="BtnKopyala_Clicked" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button x:Name="BtnRastgele" 
+                Text="Rastgele Renk" 
+                Clicked="BtnRastgele_Clicked" 
+                Margin="10,15,10,0" />
+
+    </VerticalStackLayout>
+</ContentPage>

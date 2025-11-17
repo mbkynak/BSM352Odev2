@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BSM352Odev2.KrediHesaplamaPage"
+             Title="Kredi Hesaplama">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Grid RowSpacing="15" ColumnSpacing="10" VerticalOptions="Center">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Text="Kredi Türü:" 
+                       VerticalOptions="Center"
+                       Grid.Row="0" Grid.Column="0" />
+                <Picker x:Name="PickerKrediTuru"           
+                        Title="Kredi türü seçin..."
+                        Grid.Row="0" Grid.Column="1" 
+                        Grid.ColumnSpan="2">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>İhtiyaç Kredi</x:String>
+                            <x:String>Taşıt Kredisi</x:String>
+                            <x:String>Konut Kredisi</x:String>
+                            <x:String>Ticari Kredisi</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Text="Kredi Tutarı (TL):" 
+                       VerticalOptions="Center"
+                       Grid.Row="1" Grid.Column="0" />
+
+                <Entry x:Name="EntryTutar" 
+                       Keyboard="Text" 
+                       VerticalOptions="Center"
+                       Grid.Row="1" Grid.Column="1" 
+                       Grid.ColumnSpan="2" />
+
+                <Label Text="Faiz Oranı (%):" 
+                       VerticalOptions="Center"
+                       Grid.Row="2" Grid.Column="0" />
+
+                <Entry x:Name="EntryFaiz" 
+                       Keyboard="Text" 
+                       VerticalOptions="Center"
+                       Grid.Row="2" Grid.Column="1" 
+                       Grid.ColumnSpan="2" />
+
+                <Label Text="Vade (Ay):" 
+                       VerticalOptions="Center"
+                       Grid.Row="3" Grid.Column="0" />
+                <Slider x:Name="SliderVade" 
+                        Maximum="120" 
+                        Minimum="1" 
+                        Value="12" 
+                        ValueChanged="SliderVade_ValueChanged"
+                        Grid.Row="3" Grid.Column="1" />
+                <Label x:Name="LblVade" 
+                       Text="12 Ay" 
+                       WidthRequest="60" 
+                       VerticalOptions="Center"
+                       Grid.Row="3" Grid.Column="2" />
+            </Grid>
+
+            <Button x:Name="BtnHesapla" 
+                    Text="Hesapla" 
+                    Clicked="BtnHesapla_Clicked" />
+
+            <Frame Padding="10" BorderColor="LightGray" CornerRadius="5" Margin="0,20,0,0">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Hesaplama Sonucu" FontSize="18" FontAttributes="Bold" />
+                    <Label x:Name="LblAylikTaksit" Text="Aylık Taksit: 0 TL" />
+                    <Label x:Name="LblToplamOdeme" Text="Toplam Ödeme: 0 TL" />
+                    <Label x:Name="LblToplamFaiz" Text="Toplam Faiz: 0 TL" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

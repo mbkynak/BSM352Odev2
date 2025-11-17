@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BSM352Odev2.VkiHesaplamaPage"
+             Title="Vücut Kitle İndeksi Hesaplama">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20" VerticalOptions="Center">
+
+            <Label Text="Vki=kg/(boy*boy)" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" />
+
+            <Grid RowSpacing="20" ColumnSpacing="10" VerticalOptions="Center">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Text="Kilonuz (kg):" 
+                       VerticalOptions="Center"
+                       Grid.Row="0" Grid.Column="0" />
+
+                <Entry x:Name="EntryKilo"
+                       Keyboard="Numeric"
+                       Text="70.0"
+                       VerticalOptions="Center"
+                       Completed="EntryKilo_Completed"
+                       Grid.Row="0" Grid.Column="1" />
+
+                <Slider x:Name="SliderKilo" 
+                        Minimum="30" 
+                        Maximum="200" 
+                        Value="70" 
+                        VerticalOptions="Center"
+                        ValueChanged="SliderKilo_ValueChanged"
+                        Grid.Row="0" Grid.Column="2" />
+
+                <Label Text="Boyunuz (cm):" 
+                       VerticalOptions="Center"
+                       Grid.Row="1" Grid.Column="0" />
+
+                <Entry x:Name="EntryBoy"
+                       Keyboard="Numeric"
+                       Text="170.0"
+                       VerticalOptions="Center"
+                       Completed="EntryBoy_Completed"
+                       Grid.Row="1" Grid.Column="1" />
+
+                <Slider x:Name="SliderBoy" 
+                        Minimum="100" 
+                        Maximum="220" 
+                        Value="170" 
+                        VerticalOptions="Center"
+                        ValueChanged="SliderBoy_ValueChanged"
+                        Grid.Row="1" Grid.Column="2" />
+            </Grid>
+
+            <Frame Padding="15" Margin="0,30,0,0" BorderColor="Gray">
+                <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Label Text="VKİ Değeriniz:" 
+                           FontSize="18" 
+                           HorizontalOptions="Center" />
+                    <Label x:Name="LblVkiSonuc" 
+                           Text="0.00" 
+                           FontSize="32" 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center" />
+                    <Label x:Name="LblVkiKategori" 
+                           Text="---" 
+                           FontSize="18" 
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
